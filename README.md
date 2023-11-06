@@ -81,7 +81,7 @@ Attention: The date must be in the following format yyyy-mm-ddThh:mi:ss.mmm (no 
 }
 ```
 The docVarProperty are configured here.
-These are fields from the variable root /Document/<docType>/
+These are fields from the variable root /Document/docType/
 File name elements can be assigned (fileNameElement). Otherwise the entry will be interpreted as text.
 
 If a value "Date" contains a date, a date is expected and _ is replaced by :.
