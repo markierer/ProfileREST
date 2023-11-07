@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -355,8 +357,10 @@ public class ProfileWebApp
             client.BaseAddress = baseUri;
 
             JObject content = CreateJObjectContent(list);
+            var stringContent = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
 
-            using HttpResponseMessage response = client.PostAsJsonAsync("objects/document", content).Result;
+            //using HttpResponseMessage response = client.PostAsJsonAsync("objects/document", content).Result;
+            using HttpResponseMessage response = client.PostAsync("objects/document", stringContent).Result;
             response.EnsureSuccessStatusCode();
 
             string resultContent = response.Content.ReadAsStringAsync().Result;
@@ -400,8 +404,10 @@ public class ProfileWebApp
             client.BaseAddress = baseUri;
 
             JObject content = CreateJObjectContent(list);
+            var stringContent = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
 
-            using HttpResponseMessage response = client.PutAsJsonAsync(string.Format("objects/document/{0}", id), content).Result;
+            //using HttpResponseMessage response = client.PutAsJsonAsync(string.Format("objects/document/{0}", id), content).Result;
+            using HttpResponseMessage response = client.PutAsync(string.Format("objects/document/{0}", id), stringContent).Result;
             response.EnsureSuccessStatusCode();
 
             string resultContent = response.Content.ReadAsStringAsync().Result;
