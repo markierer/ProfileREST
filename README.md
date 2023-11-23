@@ -1,7 +1,7 @@
 # ProfileREST
 Example: A business application creates pdf files and put them into a sync folder. The metadata is within the file name.
-The Profile.DocumetService monitors the sync folder, parses and sends files to the PRO.FILE WebApp Server.
-PRO.FILE is a PDM/PLM system from Procad
+The Profile.DocumentService monitors the sync folder, parses and sends files to the PRO.FILE WebApp Server.
+PRO.FILE is a PDM/PLM system from Revalize (Procad)
 
 
 ## appsettings.json
